@@ -1,23 +1,26 @@
 {
-  "name": "trademePOC",
-  "version": "1.0.0",
-  "description": "POC",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/davidbaiguini/trademePOC.git"
-  },
-  "author": "davidbaiguini",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/davidbaiguini/trademePOC/issues"
-  },
-  "homepage": "https://github.com/davidbaiguini/trademePOC",
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "^0.4.5"
-  }
+    "name": "trademePOC",
+    "version": "1.0.0",
+    "description": "POC",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/davidbaiguini/trademePOC.git"
+    },
+    "author": "davidbaiguini",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/davidbaiguini/trademePOC/issues"
+    },
+    "homepage": "https://github.com/davidbaiguini/trademePOC",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "^0.4.5"
+    },
+    "scripts" : {
+        "postinstall": "bower install"
+    }
 }
