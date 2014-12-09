@@ -4,7 +4,9 @@
     "description": "POC",
     "private": true,
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "prestart": "npm install",
+        "postinstall": "bower install",
+        "start": "http-server -a localhost -p 8000 -c-1"
     },
     "repository": {
         "type": "git",
@@ -18,9 +20,8 @@
     "homepage": "https://github.com/davidbaiguini/trademePOC",
     "dependencies": {},
     "devDependencies": {
-        "grunt": "^0.4.5"
-    },
-    "scripts" : {
-        "postinstall": "bower install"
+        "bower": "^1.3.12",
+        "grunt": "^0.4.5",
+        "http-server": "^0.7.4"
     }
 }
