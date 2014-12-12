@@ -1,0 +1,13 @@
+<div ng-controller="HomepageCtrl as plop">
+    <h1>Homepage</h1>
+    <ul>
+        <li ng-repeat="categorie in plop.categories">
+            <div>{{categorie.Name}}</div>
+            <ul>
+                <li ng-repeat="subcategorie in categorie.Subcategories">
+                    {{subcategorie.Name}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
