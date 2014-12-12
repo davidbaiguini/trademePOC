@@ -20,4 +20,3 @@ angular.module('homepage').factory('trademeAPIService', ['$http',
 
         return trademeAPIService;
 }]);
-
