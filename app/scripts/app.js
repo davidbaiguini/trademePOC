@@ -1,32 +1,46 @@
 'use strict';
 
-angular.module('trademeApp', [
+var trademeApp = angular.module('trademeApp', [
     'ngRoute',
     'view1Module',
     'view2Module'
-])
-    .config(['$routeProvider',
-        function ($routeProvider) {
-            $routeProvider
-                .when('/view1', {
-                    templateUrl: 'views/view1.html',
-                    controller: 'View1Ctrl'
-                })
-                .when('/view2', {
-                    templateUrl: 'views/view2.html',
-                    controller: 'View2Ctrl'
-                })
-                .otherwise({
-                    redirectTo: '/view1'
-                });
+]);
+
+trademeApp.config(['$routeProvider',
+    function ($routeProvider) {
+        $routeProvider
+            .when('/view1', {
+                templateUrl: 'views/view1.html',
+                controller: 'View1Ctrl'
+            })
+            .when('/view2', {
+                templateUrl: 'views/view2.html',
+                controller: 'View2Ctrl'
+            })
+            .otherwise({
+                redirectTo: '/view1'
+            });
 }]);
 
-angular.module('view1Module', [])
-    .controller('View1Ctrl', function () {
+var view1Module = angular.module('view1Module', []);
+view1Module.controller('View1Ctrl', function () {});
 
-});
+var view2Module = angular.module('view2Module', []);
+view2Module.controller('View2Ctrl', ['trademeAPIService', function (trademeAPIService) {
+        var categoriesStore = this;
+        trademeAPIService.getCategoriesList().success(function(data) {
+            //debugger;
+            categoriesStore.categories = data.Subcategories;
+        });
+    }]);
 
-angular.module('view2Module', [])
-    .controller('View2Ctrl', function () {
+view2Module.factory('trademeAPIService', ['$http',
+    function ($http) {
+        var trademeAPIService = {};
 
-    });
+        trademeAPIService.getCategoriesList = function () {
+            return $http.get('https://api.trademe.co.nz/v1/Categories.json');
+        };
+
+        return trademeAPIService;
+}]);

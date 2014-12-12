@@ -1,1 +1,16 @@
-<div>view 2<div>
+<div ng-controller="View2Ctrl as plop">
+    <div>view 2</div>
+
+
+    <ul>
+        <li ng-repeat="categorie in plop.categories">
+            <div>{{categorie.Name}}</div>
+            <ul>
+                <li ng-repeat="subcategorie in categorie.Subcategories">
+                    {{subcategorie.Name}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
